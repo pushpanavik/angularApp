@@ -5,7 +5,7 @@ app.controller('LoginCtrl', function($scope,$http,$state) {
     var ema=$scope.password;
     if(usr!='' && ema!= '')
     {
-      $state.go('home');
+      $state.go('home.Dashboard');
     }
    console.log(usr);
    console.log(ema);

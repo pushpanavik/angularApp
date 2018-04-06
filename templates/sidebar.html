@@ -1,70 +1,95 @@
-<div ng-controller="AppCtrl" layout="column" style="height:500px;" ng-cloak="" class="sidenavdemoBasicUsage" ng-app="MyApp">
+<section layout="row">
+    <md-sidenav style="margin-top:4.0em;width:200px;position: fixed;z-index: 1;"  class="md-sidenav-left" md-component-id="left"  md-disable-backdrop md-whiteframe="4">
+      <md-content  flex layout-padding>
+        <div layout="row" layout-wrap>
+          <div>
+            <fieldset class="standard">
+              <legend>Manufacturer </legend>
+                      <md-checkbox md-no-ink ng-value="x" ng-repeat="x in jsonRecord" ng-model="hasInk1" aria-label="No Ink Effects">
+                          {{ x.specs.manufacturer+" " }}
+                    </md-checkbox>
 
-  <section layout="row" flex="">
 
-    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+                </fieldset>
+              </div>
 
-      <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">Sidenav Left</h1>
-      </md-toolbar>
-      <md-content layout-padding="" ng-controller="LeftCtrl">
-        <md-button ng-click="close()" class="md-primary" hide-gt-md="">
-          Close Sidenav Left
-        </md-button>
-        <p hide="" show-gt-md="">
-          This sidenav is locked open on your device. To go back to the default behavior,
-          narrow your display.
-        </p>
-      </md-content>
+            </div>
 
-    </md-sidenav>
+            <div layout="row" layout-wrap>
+              <div>
+                <fieldset class="standard">
+                  <legend>Storage </legend>
+                          <md-checkbox md-no-ink ng-value="x" ng-repeat="x in jsonRecord" ng-model="hasInk1" aria-label="No Ink Effects">
+                              {{ x.specs.storage+" " }}
+                        </md-checkbox>
 
-    <md-content flex="" layout-padding="">
 
-      <div layout="column" layout-align="top center">
-        <p>
-        The left sidenav will 'lock open' on a medium (=960px wide) device.
-        </p>
-        <p>
-        The right sidenav will focus on a specific child element.
-        </p>
+                    </fieldset>
+                  </div>
 
-        <div>
-          <md-button ng-click="toggleLeft()" class="md-primary" hide-gt-md="">
-            Toggle left
-          </md-button>
-        </div>
+                </div>
+                <div layout="row" layout-wrap>
+                  <div>
+                    <fieldset class="standard">
+                      <legend>OS </legend>
+                              <md-checkbox md-no-ink ng-value="x" ng-repeat="x in jsonRecord" ng-model="hasInk1" aria-label="No Ink Effects">
+                                  {{ x.specs.os+" " }}
+                            </md-checkbox>
 
-        <div>
-          <md-button ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-primary">
-            Toggle right
-          </md-button>
-        </div>
-      </div>
 
-      <div flex=""></div>
+                        </fieldset>
+                      </div>
 
-    </md-content>
+                    </div>
+                    <div layout="row" layout-wrap>
+                      <div>
+                        <fieldset class="standard">
+                          <legend>Camera </legend>
+                                  <md-checkbox md-no-ink ng-value="x" ng-repeat="x in jsonRecord" ng-model="hasInk1" aria-label="No Ink Effects">
+                                      {{ x.specs.camera+" " }}
+                                </md-checkbox>
 
-    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
 
-      <md-toolbar class="md-theme-light">
-        <h1 class="md-toolbar-tools">Sidenav Right</h1>
-      </md-toolbar>
-      <md-content ng-controller="RightCtrl" layout-padding="">
-        <form>
-          <md-input-container>
-            <label for="testInput">Test input</label>
-            <input type="text" id="testInput" ng-model="data" md-autofocus="">
-          </md-input-container>
-        </form>
-        <md-button ng-click="close()" class="md-primary">
-          Close Sidenav Right
-        </md-button>
-      </md-content>
+                            </fieldset>
+                          </div>
 
-    </md-sidenav>
+                        </div>
+          </md-content>
+          </md-sidenav>
 
-  </section>
+</section>
 
-</div>
+
+<!-- <section layout="row">
+    <md-sidenav style="margin-top:4.0em;width:200px;height:790px;position: fixed;z-index: 1;"  class="md-sidenav-left" md-component-id="left"  md-disable-backdrop md-whiteframe="4">
+      <md-content  flex layout-padding>
+        <div layout="row" layout-wrap>
+          <div>
+            <fieldset class="standard">
+              <legend>OS </legend>
+                      <md-checkbox md-no-ink ng-value="x" ng-repeat="x in jsonRecord" ng-model="hasInk1" aria-label="No Ink Effects">
+                          {{ x.specs.os+" " }}
+                    </md-checkbox>
+                </fieldset>
+              </div>
+            </div>
+              </md-content>
+          </md-sidenav>
+</section>
+
+<section layout="row">
+    <md-sidenav style="margin-top:4.0em;width:200px;height:790px;position: fixed;z-index: 1;"  class="md-sidenav-left" md-component-id="left"  md-disable-backdrop md-whiteframe="4">
+      <md-content  flex layout-padding>
+        <div layout="row" layout-wrap>
+          <div>
+            <fieldset class="standard">
+              <legend>Camera </legend>
+                      <md-checkbox md-no-ink ng-value="x" ng-repeat="x in jsonRecord" ng-model="hasInk1" aria-label="No Ink Effects">
+                          {{ x.specs.camera+" " }}
+                    </md-checkbox>
+                </fieldset>
+            </div>
+          </div>
+            </md-content>
+          </md-sidenav>
+</section> -->

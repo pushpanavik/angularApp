@@ -1,7 +1,19 @@
-app.controller('homeCtrl',function($scope,$timeout, $mdSidenav, $log){
-  $scope.toggleLeft = buildDelayedToggler('left');
-    $scope.toggleRight = buildToggler('right');
-    $scope.isOpenRight = function(){
-      return $mdSidenav('right').isOpen();
+app.controller('homeCtrl', function ($scope,$mdSidenav,$state,$rootScope,$http,JsonService) {
+  $scope.toggleLeft = buildToggler('left');
+  $scope.toggleRight = buildToggler('right');
+
+  function buildToggler(componentId) {
+    return function() {
+      $mdSidenav(componentId).toggle();
     };
+  }
+
+
+$scope.readJson=JsonService.read();
+$scope.readJson.then(function(response){
+  $scope.jsonRecord = response;
+})
+  $scope.sendLogin = function() {
+    $state.go('login');
+  };
 })

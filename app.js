@@ -14,7 +14,7 @@ app.config(function($stateProvider,$urlRouterProvider)
     templateUrl:'templates/home.html',
     controller:'homeCtrl'
   })
-  .state('Dashboard',
+  .state('home.Dashboard',
   {
     url:'/Dashboard',
     templateUrl:'templates/Dashboard.html',

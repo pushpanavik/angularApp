@@ -1,17 +1,13 @@
 
 
+<md-card >
+ <!-- <img src="img/galaxy-alpha-large.jpg" class="md-card-image" alt="image caption"> -->
 
-
-<!-- <label> <b> Manufacturer </b> </label>
-      <div ng-repeat="item in items" class="standard" flex="">
-                   <label>
-                     <input type="checkbox" ng-checked="exists(item, selected)"
-                            ng-click="toggle(item, selected)"/>
-                     {{ item }}
-                   </label>
-                 </div> -->
-
-<!-- <div ng-repeat="cardDetail in json">
-  {{cardDetail.id}}
-  {{cardDetail.name}}
-  {{cardDetail.price}} -->
+<div ng-repeat="specs in json" class="col-md-2">
+<ul>
+<li>{{specs.manufacturer}} </li>
+<li> {{specs.storage}} </li>
+<li>{{specs.os}} </li>
+<li> {{specs.camera}} </li>
+</ul>
+</md-card>
