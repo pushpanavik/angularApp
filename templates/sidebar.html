@@ -1,14 +1,15 @@
+<!-- creating a sidebar with multiple checkbox using section -->
 <section layout="row">
     <md-sidenav style="margin-top:4.0em;width:200px;position: fixed;z-index: 1;"  class="md-sidenav-left" md-component-id="left"  md-disable-backdrop md-whiteframe="4">
       <md-content  flex layout-padding>
         <div layout="row" layout-wrap>
           <div>
-            <fieldset class="standard">
+            <fieldset class="standard" >
+              <!-- This will create a list of multiple checkbox with multiple values with title  Manufacturer -->
               <legend>Manufacturer </legend>
-                      <md-checkbox md-no-ink ng-value="x" ng-repeat="x in jsonRecord" ng-model="hasInk1" aria-label="No Ink Effects">
-                          {{ x.specs.manufacturer+" " }}
-                    </md-checkbox>
-
+              <md-checkbox md-no-ink ng-value="x" ng-repeat="x in removeDuplicateManufacturer  "  aria-label="No Ink Effects">
+                  {{ x+" " }}
+            </md-checkbox>
 
                 </fieldset>
               </div>
@@ -18,9 +19,10 @@
             <div layout="row" layout-wrap>
               <div>
                 <fieldset class="standard">
+                  <!-- This will create a list of multiple checkbox with multiple values with title  Storage -->
                   <legend>Storage </legend>
-                          <md-checkbox md-no-ink ng-value="x" ng-repeat="x in jsonRecord" ng-model="hasInk1" aria-label="No Ink Effects">
-                              {{ x.specs.storage+" " }}
+                          <md-checkbox md-no-ink ng-value="x" ng-repeat="x in  removeDuplicateStorage" ng-model="hasInk1" aria-label="No Ink Effects">
+                              {{ x+" " }}
                         </md-checkbox>
 
 
@@ -31,9 +33,10 @@
                 <div layout="row" layout-wrap>
                   <div>
                     <fieldset class="standard">
+                      <!-- This will create a list of multiple checkbox with multiple values with title  OS -->
                       <legend>OS </legend>
-                              <md-checkbox md-no-ink ng-value="x" ng-repeat="x in jsonRecord" ng-model="hasInk1" aria-label="No Ink Effects">
-                                  {{ x.specs.os+" " }}
+                              <md-checkbox md-no-ink ng-value="x" ng-repeat="x in removeDuplicateOS" ng-model="hasInk1" aria-label="No Ink Effects">
+                                  {{ x+" " }}
                             </md-checkbox>
 
 
@@ -44,9 +47,10 @@
                     <div layout="row" layout-wrap>
                       <div>
                         <fieldset class="standard">
+                          <!-- This will create a list of multiple checkbox with multiple values with title  Camera -->
                           <legend>Camera </legend>
-                                  <md-checkbox md-no-ink ng-value="x" ng-repeat="x in jsonRecord" ng-model="hasInk1" aria-label="No Ink Effects">
-                                      {{ x.specs.camera+" " }}
+                                  <md-checkbox md-no-ink ng-value="x" ng-repeat="x in removeDuplicateCamera" ng-model="hasInk1" aria-label="No Ink Effects">
+                                      {{ x+" " }}
                                 </md-checkbox>
 
 

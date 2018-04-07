@@ -1,13 +1,27 @@
 
 
-<md-card >
- <!-- <img src="img/galaxy-alpha-large.jpg" class="md-card-image" alt="image caption"> -->
+<div layout="row">
+  <div layout="row" layout-wrap>
+    <md-card ng-repeat="x in jsonRecord" style="height:550px;width:250px;background-color:white;" flex="40">
+      <md-card-title>
+        <img style="height:350px;width:300px;" ng-src={{x.image.small}} class="md-card-image"><br>
 
-<div ng-repeat="specs in json" class="col-md-2">
-<ul>
-<li>{{specs.manufacturer}} </li>
-<li> {{specs.storage}} </li>
-<li>{{specs.os}} </li>
-<li> {{specs.camera}} </li>
-</ul>
-</md-card>
+      </md-card-title>
+      <md-card-content layout="column" >
+        <div class="md-toolbar-tools usableTool"> <center>
+         {{x.id+""}}{{" "+x.name}}
+          </div>
+
+          {{"Price : "+x.price}} <br>
+        {{"OS : "+x.specs.os}} <br>
+        {{"Rating : "+x.rating}} <br>
+          {{"Storage : "+x.specs.storage}} <br>
+
+
+          <md-button class="md-primary md-raised" style="height:20px;width:10px">Buy Now</md-button>
+</center>
+      </md-card-content>
+    </md-card>
+  </div>
+
+</div>
