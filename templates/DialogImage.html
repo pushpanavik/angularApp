@@ -1,0 +1,20 @@
+<md-dialog >
+  <form ng-cloak>
+  <md-toolbar  >
+        <div class="md-toolbar-tools">
+          <h2>{{jsonRecord.name}}</h2>
+          <span flex></span>
+        </md-toolbar>
+
+
+<md-card>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+      <img style="margin: auto; max-width: 80%; max-height:50;" ng-src={{jsonRecord.image.large}} alt="nothing to display" ><br>
+    <p>  {{jsonRecord.description|json}} </p>
+    </div>
+    </md-dialog-content>
+</md-card>
+  </form>
+
+</md-dialog>

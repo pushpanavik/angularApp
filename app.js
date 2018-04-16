@@ -19,8 +19,7 @@ app.config(function($stateProvider,$urlRouterProvider)
     url:'/Dashboard',
     templateUrl:'templates/Dashboard.html',
     controller:'DashboardCtrl'
-  })
-
+  });
 
   $urlRouterProvider.otherwise("Login")
 });
