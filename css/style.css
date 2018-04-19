@@ -4,6 +4,8 @@
   margin: 20px;
   background-color: #FFF2E0;
 }
+.dialogdemoBasicUsage #popupContainer {
+  position: relative; }
 .carddemoBasicUsage .card-media {
   background-color: #999999; }
 
@@ -17,7 +19,11 @@
 
 .checkboxdemoSelectAll .demo-select-all-checkboxes {
   padding-left: 30px; }
-  
+
+  .checkboxdemoSyncing fieldset.standard {
+  border-style: solid;
+  border-width: 1px;
+  height: 100%; }
   .dialogdemoThemeInheritance .container {
     text-align: center; }
   </style>
