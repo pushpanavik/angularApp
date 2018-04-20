@@ -2,7 +2,7 @@
 
 <div  id="popupContainer" >
   <div layout="row" layout-wrap>
-    <md-card ng-repeat="x in jsonRecord|customFilter:manufacturearray:storagearray:osarray:cameraarray"
+    <md-card ng-repeat="x in jsonRecord"
      style="height:550px;width:250px;background-color:white;" flex="30">
       <md-card-title>
         <img style="height:350px;width:300px;" ng-src={{x.image.small}} class="md-card-image"><br>

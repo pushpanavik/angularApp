@@ -1,12 +1,5 @@
-app.controller('homeCtrl', function ($scope,$mdSidenav,$state,$rootScope,$http,JsonService,$filter) {
-// to push the value of manufacturer from json file to array
-  $scope.manufactureArray=[];
-  // to push the value of storage from json file to array
-  $scope.storageArray=[];
-  // to push the value of OS from json file to array
-  $scope.osArray=[];
-  // to push the value of camera  from json file to array
-  $scope.cameraArray=[];
+app.controller('homeCtrl',function ($scope,$mdSidenav,$state,$rootScope,$http,JsonService,$filter) {
+
   $scope.toggleLeft = buildToggler('left');
   $scope.toggleRight = buildToggler('right');
 
@@ -17,56 +10,57 @@ app.controller('homeCtrl', function ($scope,$mdSidenav,$state,$rootScope,$http,J
   }
 
 // to keep track of selected item from manufactureArray and store it in selectedManufactur
-$scope.selectedManufactur=[];
+var selectedManufactur=[];
 // to keep track of selected item from  storageArray and store it in selectedStorage
-$scope.selectedStorage=[];
+var selectedStorage=[];
 // to keep track of selected item from osArray and store it in selectedOS
-$scope.selectedOS=[];
+var selectedOS=[];
 //to keep track of selected item from cameraArray and store it in selectedCamera
-$scope.selectedCamera=[];
+var selectedCamera=[];
 
 $scope.readJson=JsonService.read();
 $scope.readJson.then(function(response){
 $scope.jsonRecord = response.data;
 
-angular.forEach($scope.jsonRecord,function(value,key)
-{
-  $scope.manufactureArray.push(value.specs.manufacturer);
-  $scope.removeDuplicateManufacturer=$scope.manufactureArray.filter(function(elem,index,data){
-            return index==data.indexOf(elem);
- })
-});
-  angular.forEach($scope.jsonRecord,function(value,key)
-  {
-    $scope.storageArray.push(value.specs.storage);
-    $scope.removeDuplicateStorage=$scope.storageArray.filter(function(elem,index,data){
-      return index==data.indexOf(elem);
-    })
-});
-angular.forEach($scope.jsonRecord,function(value,key)
-{
-  $scope.osArray.push(value.specs.os);
-  $scope.removeDuplicateOS=$scope.osArray.filter(function(elem,index,data){
-    return index==data.indexOf(elem);
-  })
-});
-angular.forEach($scope.jsonRecord,function(value,key)
-{
-  $scope.cameraArray.push(value.specs.camera);
-  $scope.removeDuplicateCamera=$scope.cameraArray.filter(function(elem,index,data){
-    return index==data.indexOf(elem);
-  })
-});
-})
+// angular.forEach($scope.jsonRecord,function(value,key)
+// {
+//   $scope.manufactureArray.push(value.specs.manufacturer);
+//   $scope.removeDuplicateManufacturer=$scope.manufactureArray.filter(function(elem,index,data){
+//             return index==data.indexOf(elem);
+//  })
+// });
+//   angular.forEach($scope.jsonRecord,function(value,key)
+//   {
+//     $scope.storageArray.push(value.specs.storage);
+//     $scope.removeDuplicateStorage=$scope.storageArray.filter(function(elem,index,data){
+//       return index==data.indexOf(elem);
+//     })
+// });
+// angular.forEach($scope.jsonRecord,function(value,key)
+// {
+//   $scope.osArray.push(value.specs.os);
+//   $scope.removeDuplicateOS=$scope.osArray.filter(function(elem,index,data){
+//     return index==data.indexOf(elem);
+//   })
+// });
+// angular.forEach($scope.jsonRecord,function(value,key)
+// {
+//   $scope.cameraArray.push(value.specs.camera);
+//   $scope.removeDuplicateCamera=$scope.cameraArray.filter(function(elem,index,data){
+//     return index==data.indexOf(elem);
+//   })
+// });
+// })
        $scope.sendLogin = function() {
          $state.go('login');
 };
+})
 
-$scope.toggle=function (selectOption, selectedItem) {
+$scope.toggle=function(selectOption, selectedItem) {
   switch(selectOption)
   {
     case 'manufacturer':
-    debug;
+
    var manufactureindex=selectedManufactur.indexOf(selectedItem);
         if (manufactureindex > -1) {
     selectedManufactur.splice(manufactureindex, 1);
@@ -105,19 +99,47 @@ $scope.toggle=function (selectOption, selectedItem) {
                     break;
 }
 };
-$scope.manufactureArray=selectedManufactur;
-$scope.storageArray=selectedStorage;
-$scope.osArray=selectedOS;
-$scope.cameraArray=selectedCamera;
-})
+var manufactureArray=selectedManufactur;
+var storageArray=selectedStorage;
+var osArray=selectedOS;
+var cameraArray=selectedCamera;
+});
 
-
+// app.filter('unique',function()
+// {
+//   return function(collection,key)
+//   {
+//     var filteredArray = [];
+//     for(var i=0;i<collection.length;i++)
+//     {
+//       var item=collection[i];
+//       if(i==0)
+//       {
+//         filteredArray.push[item];
+//       }
+//       else{
+//         for(var j=0;j<filteredArray.length;j++)
+//         {
+//           var filteritem=filteredArray[j];
+//           if(filteredArray[key]==collection[key])
+//           {
+//             var flag=true;
+//           }else {
+//             flag=false;
+//             filteredArray.push[item];
+//           }
+//         }
+//       }
+//     }
+// return filteredArray;
+//   }
+// });
 app.filter('customFilter',function()
 {
   return function(items,manufactureArray,storageArray,osArray,cameraArray){
     var filtered=[];
     var temarray=[];
- if(!items)
+ if(items!=undefined)
  {
   if(manufacturearray.length>0 ||storagearray.length>0 || osarray.length>0 ||cameraarray.length>0)
    {
@@ -138,8 +160,7 @@ app.filter('customFilter',function()
       {
         temarray=filtered;
         filtered=[];
-      }
-      else
+      }else
       {
        temarray=items;
       }
@@ -158,14 +179,10 @@ app.filter('customFilter',function()
               }
            }
         }
-        if(filtered.length>0)
-        {
           temarray=filtered;
           filtered=[];
-        }
-        else {
-          temarray=items;
-        }
+      }
+
         if(osarray.length>0)
         {
           for(var j=0;j<temarray.length;j++)
@@ -181,15 +198,10 @@ app.filter('customFilter',function()
                 }
             }
           }
-          if(filtered.length>0)
-          {
             temarray=filtered;
             filtered=[];
           }
-          else {
-            {
-              temarray=items;
-            }
+
             if(cameraarray.length>0)
             {
               for(var j=0;j<cameraarray.length;j++)
@@ -205,20 +217,14 @@ app.filter('customFilter',function()
                     }
                 }
               }
-              if(filtered.length>0)
-              {
                 temarray=filtered;
                 filtered=[];
               }
-            }
-          }
         }
-      }
-    }else {
-      return items;
+            else {
+    temarray=items;
     }
   }
-  // else if(items!=undefined)
-    }
-      return filtered;
-  })
+return temarray;
+};
+});

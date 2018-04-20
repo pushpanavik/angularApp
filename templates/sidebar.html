@@ -8,8 +8,9 @@
           <fieldset class="standard">
             <!-- This will create a list of multiple checkbox with multiple values with title  Manufacturer -->
             <legend>Manufacturer </legend>
-              <div ng-repeat="x in removeDuplicateManufacturer">
-                <md-checkbox ng-click="toggle('manufacturer',x)"> {{x}} </li>
+              <div ng-repeat="x in jsonRecord |unique:'specs.manufacturer'|orderBy:'specs.manufacturer'">
+                <md-checkbox ng-click="toggle('manufacturer',x.specs.manufacturer)"> {{x.specs.manufacturer}}
+                </md-checkbox>
             </div>
 
           </fieldset>
